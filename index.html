@@ -1,1 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXCLUSIVE GIVEAWAY</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid #ffd700;
+            /* Eliminado display: none inicial */
+        }
+        h1 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        #discord-id {
+            width: 80%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ffd700;
+            border-radius: 5px;
+            background: rgba(255, 215, 0, 0.1);
+            color: #fff;
+            font-size: 16px;
+        }
+        #submit-btn {
+            background: linear-gradient(to right, #ffd700, #ffaa00);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        #submit-btn:hover {
+            background: linear-gradient(to right, #ffaa00, #ffd700);
+        }
+        #status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background: rgba(0, 255, 0, 0.1);
+            color: #0f0;
+            border-left: 3px solid #0f0;
+            display: block;
+        }
+        .error {
+            background: rgba(255, 0, 0, 0.1);
+            color: #f00;
+            border-left: 3px solid #f00;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="main-container">
+        <h1>EXCLUSIVE GIVEAWAY</h1>
+        <p>Enter your Discord ID to claim your prize</p>
+        
+        <input type="text" id="discord-id" placeholder="Your Discord ID (e.g. 123456789012345678)">
+        <button id="submit-btn">CLAIM PRIZE</button>
+        
+        <div id="status"></div>
+    </div>
 
+    <!-- Carga los scripts con defer para mejor rendimiento -->
+    <script src="https://cdn.jsdelivr.net/npm/fingerprintjs2@2.1.4/dist/fingerprint2.min.js" defer></script>
+    <script src="encrypted.js" defer></script>
+    
+    <!-- Script de inicialización -->
+    <script>
+    // Protección básica contra DevTools
+    document.addEventListener('DOMContentLoaded', function() {
+        // Mostrar el contenedor inmediatamente
+        document.getElementById('main-container').style.display = 'block';
+        
+        // Detección simple de DevTools
+        if(window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
+            document.body.innerHTML = '<h1 style="color:red">Please disable developer tools to continue</h1>';
+        }
+    });
+    </script>
+</body>
+</html>
